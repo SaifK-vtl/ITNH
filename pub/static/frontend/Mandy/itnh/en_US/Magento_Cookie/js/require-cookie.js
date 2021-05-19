@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/itnh/vendor/magento/module-cookie/view/frontend/web/js/require-cookie.js

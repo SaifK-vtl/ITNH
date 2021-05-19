@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.panel.wrapper" remove="true" />
+        <move element="catalog.topnav" destination="header-wrapper" before="-"/>
+        <move element="top.search" destination="catalog.topnav" after="-"/>
+        <referenceBlock name="advanced-search-link" remove="true"/>
+        <referenceContainer name="header.container">
+            <block class="Magento\Cms\Block\Block" name="top-bar" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">tob-bar</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="footer">
+            <referenceBlock name="footer_links" remove="true" />
+            <referenceBlock name="report.bugs" remove="true" />
+            <referenceBlock name="privacy-policy-link" remove="true"/>
+        </referenceContainer>
+        <move element="copyright" destination="before.body.end"/>
+        <move element="minicart" destination="top-bar" before="-" />
+        <referenceContainer name="copyright" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true"/>
+    </body>
+</page>

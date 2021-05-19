@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/itnh/vendor/magento/module-catalog/view/adminhtml/web/js/components/use-parent-settings/textarea.js

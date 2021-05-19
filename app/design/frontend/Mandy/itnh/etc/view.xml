@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/view.xsd">
+    <media>
+        <images module="Magento_Catalog">
+            <image id="category_page_grid" type="small_image">
+                <width>300</width>
+                <height>400</height>
+            </image>
+            <image id="product_page_image_small" type="thumbnail">
+                <width>125</width>
+                <height>125</height>
+            </image>
+            <image id="cart_page_product_thumbnail" type="small_image">
+                <width>123</width>
+                <height>112</height>
+            </image>
+            <image id="product_comparison_list" type="small_image">
+                <width>300</width>
+                <height>400</height>
+            </image>
+            <image id="product_page_image_medium" type="image">
+                <width>360</width>
+                <height>360</height>
+            </image>
+        </images>
+    </media>
+
+
+    <vars module="Magento_Catalog">
+
+        <!-- Gallery and magnifier theme settings. Start -->
+        <var name="gallery">
+            <var name="navtype">slides</var> <!-- Sliding type of thumbnails (slides/thumbs) -->
+            <var name="navarrows">true</var> <!-- Turn on/off on the thumbs navigation sides arrows(true/false) -->
+            <var name="arrows">false</var> <!-- Turn on/off arrows on the sides preview (true/false) -->
+            <var name="allowfullscreen">false</var>
+        </var>
+
+        <var name="breakpoints">
+            <var name="mobile">
+                <var name="conditions">
+                    <var name="max-width">1000px</var>
+                </var>
+                <var name="options">
+                    <var name="options">
+                        <var name="navdir">horizontal</var>
+                        <var name="nav">thumbs</var>
+                    </var>
+                </var>
+            </var>
+            <var name="mobilesmall">
+                <var name="conditions">
+                    <var name="max-width">800px</var>
+                </var>
+                <var name="options">
+                    <var name="options">
+                        <var name="navdir">horizontal</var>
+                        <var name="nav">thumbs</var>
+                    </var>
+                </var>
+            </var>
+        </var>
+    </vars>
+</view>

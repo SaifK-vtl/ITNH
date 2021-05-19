@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/itnh/lib/web/mage/ie-class-fixer.js

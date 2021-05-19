@@ -1,0 +1,1 @@
+"Fatal Error: 'Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes)' in '\/Applications\/MAMP\/htdocs\/itnh\/vendor\/laminas\/laminas-code\/src\/Scanner\/FileScanner.php' on line 40"

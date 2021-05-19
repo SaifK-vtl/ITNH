@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/itnh/lib/web/jquery/fileUploader/vendor/blueimp-canvas-to-blob/js/canvas-to-blob.js
