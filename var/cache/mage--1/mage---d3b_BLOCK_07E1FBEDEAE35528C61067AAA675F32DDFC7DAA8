@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1621455431;s:6:"expire";i:1621459031;s:4:"tags";s:84:"d3b_BLOCK_HTML,d3b_CAT_C,d3b_CAT_C_3,d3b_CAT_C_12,d3b_CAT_C_36,d3b_CAT_C_37,d3b_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1621516189;s:6:"expire";i:1621519789;s:4:"tags";s:84:"d3b_BLOCK_HTML,d3b_CAT_C,d3b_CAT_C_3,d3b_CAT_C_12,d3b_CAT_C_36,d3b_CAT_C_37,d3b_MAGE";}
 a:2:{s:8:"policies";a:1:{i:0;a:3:{s:2:"id";s:10:"script-src";s:5:"hosts";a:0:{}s:6:"hashes";a:4:{s:44:"y+BGG8Y7V3lyOjEi0u63jL3D4Eo1JBkv2BYjLK2BM8A=";s:6:"sha256";s:44:"48sb4Je7XoTlJimO7pm/+fwXo5BBI6oU4Vci+QqK2/I=";s:6:"sha256";s:44:"HUjaEs6gPI/8f06cL8Wy1zR3vaPjSDAYb+YL5IRBsf4=";s:6:"sha256";s:44:"9N89WMndeXJQQmez3zcXupuWhb0jRtPuHYgRtBa1Cjo=";s:6:"sha256";}}}s:4:"html";s:8135:"
 <nav class="navigation" data-action="navigation">
     <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
