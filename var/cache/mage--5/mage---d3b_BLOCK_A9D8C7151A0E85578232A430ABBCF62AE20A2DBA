@@ -1,0 +1,50 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1621553475;s:6:"expire";i:1621557075;s:4:"tags";s:84:"d3b_BLOCK_HTML,d3b_CAT_C,d3b_CAT_C_3,d3b_CAT_C_12,d3b_CAT_C_36,d3b_CAT_C_37,d3b_MAGE";}
+a:2:{s:8:"policies";a:1:{i:0;a:3:{s:2:"id";s:10:"script-src";s:5:"hosts";a:0:{}s:6:"hashes";a:4:{s:44:"eNF2jcRuxGXVUYcXg/RL3TaWjd0P0kDopF6C/Gr64Is=";s:6:"sha256";s:44:"48sb4Je7XoTlJimO7pm/+fwXo5BBI6oU4Vci+QqK2/I=";s:6:"sha256";s:44:"HUjaEs6gPI/8f06cL8Wy1zR3vaPjSDAYb+YL5IRBsf4=";s:6:"sha256";s:44:"9N89WMndeXJQQmez3zcXupuWhb0jRtPuHYgRtBa1Cjo=";s:6:"sha256";}}}s:4:"html";s:8142:"
+<nav class="navigation" data-action="navigation">
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <li  class="level0 nav-1 category-item first level-top parent"><a href="http://itnh.local/industry.html"  class="level-top" ><span>Industries &amp; Solutions</span></a><ul class="level0 submenu"><li  class="level1 nav-1-1 category-item first parent"><a href="http://itnh.local/industry/industrial-printing.html" ><span>Industrial Printing</span></a><ul class="level1 submenu"><li  class="level2 nav-1-1-1 category-item first last"><a href="http://itnh.local/industry/industrial-printing/oem-product-decoration.html" ><span>OEM Product Decoration</span></a></li></ul></li><li  class="level1 nav-1-2 category-item"><a href="http://itnh.local/industry/dye-sub-printing.html" ><span>Dye Sub Printing</span></a></li><li  class="level1 nav-1-3 category-item"><a href="http://itnh.local/industry/digital-textile-038-fabric-printing.html" ><span>Digital Textile &#038; Fabric Printing</span></a></li><li  class="level1 nav-1-4 category-item"><a href="http://itnh.local/industry/direct-to-garment-printing.html" ><span>Direct to Garment Printing</span></a></li><li  class="level1 nav-1-5 category-item"><a href="http://itnh.local/industry/sign-graphic-arts-printing.html" ><span>Sign &amp; Graphic Arts Printing</span></a></li><li  class="level1 nav-1-6 category-item"><a href="http://itnh.local/industry/digital-print-media.html" ><span>Digital Print Media</span></a></li><li  class="level1 nav-1-7 category-item last"><a href="http://itnh.local/industry/vinyl-printing.html" ><span>Vinyl Printing</span></a></li></ul></li><li  class="level0 nav-2 category-item level-top parent"><a href="http://itnh.local/shop-products.html"  class="level-top" ><span>Shop Products</span></a><ul class="level0 submenu"><li  class="level1 nav-2-1 category-item first parent"><a href="http://itnh.local/shop-products/printers.html" ><span>Printers</span></a><ul class="level1 submenu"><li  class="level2 nav-2-1-1 category-item first"><a href="http://itnh.local/shop-products/printers/mimaki.html" ><span>Mimaki</span></a></li><li  class="level2 nav-2-1-2 category-item"><a href="http://itnh.local/shop-products/printers/mutoh.html" ><span>Mutoh</span></a></li><li  class="level2 nav-2-1-3 category-item"><a href="http://itnh.local/shop-products/printers/epson.html" ><span>Epson</span></a></li><li  class="level2 nav-2-1-4 category-item"><a href="http://itnh.local/shop-products/printers/efi.html" ><span>EFI</span></a></li><li  class="level2 nav-2-1-5 category-item last"><a href="http://itnh.local/shop-products/printers/used-demo.html" ><span>Used &amp; Demo</span></a></li></ul></li><li  class="level1 nav-2-2 category-item parent"><a href="http://itnh.local/shop-products/engravers.html" ><span>Engravers</span></a><ul class="level1 submenu"><li  class="level2 nav-2-2-1 category-item first last"><a href="http://itnh.local/shop-products/engravers/gravotech.html" ><span>Gravotech</span></a></li></ul></li><li  class="level1 nav-2-3 category-item parent"><a href="http://itnh.local/shop-products/gravotech.html" ><span>Cutters</span></a><ul class="level1 submenu"><li  class="level2 nav-2-3-1 category-item first"><a href="http://itnh.local/shop-products/gravotech/by-brand.html" ><span>By Brand</span></a></li><li  class="level2 nav-2-3-2 category-item last"><a href="http://itnh.local/shop-products/gravotech/by-category.html" ><span>By Category</span></a></li></ul></li><li  class="level1 nav-2-4 category-item parent"><a href="http://itnh.local/shop-products/inks.html" ><span>Inks</span></a><ul class="level1 submenu"><li  class="level2 nav-2-4-1 category-item first"><a href="http://itnh.local/shop-products/inks/by-category.html" ><span>By Category</span></a></li><li  class="level2 nav-2-4-2 category-item last"><a href="http://itnh.local/shop-products/inks/by-brand.html" ><span>By Brand</span></a></li></ul></li><li  class="level1 nav-2-5 category-item parent"><a href="http://itnh.local/shop-products/media.html" ><span>Media</span></a><ul class="level1 submenu"><li  class="level2 nav-2-5-1 category-item first"><a href="http://itnh.local/shop-products/media/solvent-uv-latex.html" ><span>Solvent - UV -Latex</span></a></li><li  class="level2 nav-2-5-2 category-item"><a href="http://itnh.local/shop-products/media/water-based.html" ><span>Water Based</span></a></li><li  class="level2 nav-2-5-3 category-item last"><a href="http://itnh.local/shop-products/media/laminating-mounting.html" ><span>Laminating &amp; Mounting</span></a></li></ul></li><li  class="level1 nav-2-6 category-item parent"><a href="http://itnh.local/shop-products/pre-post-print-processing-equipment.html" ><span>Pre/Post Print Processing Equipment</span></a><ul class="level1 submenu"><li  class="level2 nav-2-6-1 category-item first"><a href="http://itnh.local/shop-products/pre-post-print-processing-equipment/laminators.html" ><span>Laminators</span></a></li><li  class="level2 nav-2-6-2 category-item"><a href="http://itnh.local/shop-products/pre-post-print-processing-equipment/heat-presses.html" ><span>Heat Presses</span></a></li><li  class="level2 nav-2-6-3 category-item last"><a href="http://itnh.local/shop-products/pre-post-print-processing-equipment/textile-processing.html" ><span>Textile Processing</span></a></li></ul></li><li  class="level1 nav-2-7 category-item last"><a href="http://itnh.local/shop-products/software.html" ><span>Software</span></a></li></ul></li><li  class="level0 nav-3 category-item level-top"><a href="http://itnh.local/promotions.html"  class="level-top" ><span>Promotions</span></a></li><li  class="level0 nav-4 category-item active last level-top parent"><a href="http://itnh.local/services.html"  class="level-top" ><span>Services</span></a><ul class="level0 submenu"><li  class="level1 nav-4-1 category-item first"><a href="http://itnh.local/services/consultation.html" ><span>Consultation</span></a></li><li  class="level1 nav-4-2 category-item last"><a href="http://itnh.local/services/support.html" ><span>Support</span></a></li></ul></li>        <div class="block block-search">
+    <div class="block block-title"><strong>Search</strong></div>
+    <div class="block block-content">
+        <form class="form minisearch" id="search_mini_form"
+              action="http://itnh.local/catalogsearch/result/" method="get">
+            <div class="field search">
+                <label class="label" for="search" data-role="minisearch-label">
+                    <span>Search</span>
+                </label>
+                <div class="control">
+                    <input id="search"
+                                                           data-mage-init='{"quickSearch":{
+                                    "formSelector":"#search_mini_form",
+                                    "url":"http://itnh.local/search/ajax/suggest/",
+                                    "destinationSelector":"#search_autocomplete",
+                                    "minSearchLength":"3"}
+                               }'
+                                                       type="text"
+                           name="q"
+                           value=""
+                           placeholder="Search&#x20;entire&#x20;store&#x20;here..."
+                           class="input-text"
+                           maxlength="128"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"
+                           aria-expanded="false"/>
+                    <div id="search_autocomplete" class="search-autocomplete"></div>
+                                    </div>
+            </div>
+            <div class="actions">
+                <button type="submit"
+                    title="Search"
+                    class="action search"
+                    aria-label="Search"
+                >
+                    <span>Search</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+    </ul>
+</nav>
+";}
