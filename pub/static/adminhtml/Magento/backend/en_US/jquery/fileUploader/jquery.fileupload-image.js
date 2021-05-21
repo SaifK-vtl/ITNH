@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/itnh/lib/web/jquery/fileUploader/jquery.fileupload-image.js

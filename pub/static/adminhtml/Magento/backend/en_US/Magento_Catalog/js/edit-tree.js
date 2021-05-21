@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/itnh/vendor/magento/module-catalog/view/adminhtml/web/js/edit-tree.js

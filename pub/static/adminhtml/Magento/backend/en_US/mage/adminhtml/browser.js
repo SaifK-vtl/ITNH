@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/itnh/lib/web/mage/adminhtml/browser.js

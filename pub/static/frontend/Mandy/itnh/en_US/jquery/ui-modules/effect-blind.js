@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/itnh/lib/web/jquery/ui-modules/effect-blind.js

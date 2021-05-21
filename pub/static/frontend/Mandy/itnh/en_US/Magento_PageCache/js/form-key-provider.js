@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/itnh/vendor/magento/module-page-cache/view/frontend/web/js/form-key-provider.js

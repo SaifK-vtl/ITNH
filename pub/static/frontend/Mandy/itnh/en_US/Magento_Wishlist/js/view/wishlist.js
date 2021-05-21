@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/itnh/vendor/magento/module-wishlist/view/frontend/web/js/view/wishlist.js
