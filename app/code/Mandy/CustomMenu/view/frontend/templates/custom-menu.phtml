@@ -1,0 +1,81 @@
+<?php
+$categories = $this->getStoreCategories(true, false, true);
+$categoryHelper = $this->getCategoryHelper();
+?>
+<nav>
+    <ul id='menu'>
+        <li><a class='prett' href='/industry' title='Industries & Solutions'>Industries &#038; Solutions</a>
+            <ul class='menus'>
+                <li class='has-submenu'><a class='prett' href='/industry/industrial-printing' title='Industrial Printing'>Industrial Printing</a>
+                    <ul class='submenu'>
+                        <li><a href="/industry/industrial-printing/oem-product-decoration" title="OEM Product Decoration">OEM Product Decoration</a></li>
+                    </ul>
+                </li>
+                <li><a href='/industry/dye-sub-textile-printing' title='Dye Sub Printing'>Dye Sub Printing</a></li>
+                <li><a href='/industry/digital-textile-printing' title='Digital Textile &#038; Fabric Printing'>Digital Textile &#038; Fabric Printing</a></li>
+                <li><a href='/industry/direct-to-garment-dtg-printer' title='Direct to Garment Printing'>Direct to Garment Printing</a></li>
+                <li><a href='/industry/sign-graphics' title='Sign &#038; Graphic Arts Printing'>Sign &#038; Graphic Arts Printing</a></li>
+                <li><a href='/industry/digital-print-media' title='Digital Print Media'>Digital Print Media</a></li>
+                <li><a href='/industry/vinyl-printing-machines' title='Vinyl Printing'>Vinyl Printing</a></li>
+            </ul>
+        </li>
+        <li>
+            <?php
+            foreach ($categories as $category):
+            if (!$category->getIsActive()) {
+                continue;
+            }
+            ?>
+            <a class='prett' href="<?php echo $categoryHelper->getCategoryUrl($category) ?>"><?php echo $category->getName() ?></a>
+            <ul class='menus'>
+                <?php
+                if ($childrenCategories = $this->getChildCategories($category)):
+                    ?>
+
+                        <?php
+                        foreach ($childrenCategories as $childrenCategory):
+                            if (!$childrenCategory->getIsActive()) {
+                                continue;
+                            }
+                            ?>
+                            <li class='has-submenu'><a class='prett' href="<?php echo $categoryHelper->getCategoryUrl($childrenCategory) ?>"><?php echo $childrenCategory->getName() ?></a>
+                                <ul class='submenu'>
+                                    <li><a href="<?php echo $categoryHelper->getCategoryUrl($childrenCategory) ?>"><?php echo $childrenCategory->getName() ?></a></li>
+                                </ul>
+                            </li>
+                        <?php
+                        endforeach;
+                        ?>
+                    </ul>
+                <?php
+                endif;
+                endforeach;
+                ?>
+        </li>
+
+        <li><a class='' href='/wide-format-inkjet-printing-promotions' title='Promotion'>Promotion</a></li>
+        <li><a class='' href='/services' title='Services'>Services</a>
+            <ul class='menus'>
+                <li><a href='/services/consultation' title='Consultation'>Consultation</a></li>
+                <li><a href='/services/support' title='Support'>Support</a></li>
+            </ul>
+        </li>
+        <li><a class='' href='/resources' title='Menu'>Resources</a>
+            <ul class='menus'>
+                <li><a href='#' title='Blog'>Blog</a></li>
+                <li><a href='#' title='Buyers Guides & Videos'>Buyers Guides & Videos</a></li>
+                <li><a href='#' title='Press Release'>Press Release</a></li>
+                <li><a href='#' title='Webinars'>Webinars</a></li>
+            </ul>
+        </li>
+        <li><a class='' href='#' title='Events'>Events</a></li>
+        <li><a class='' href='/about' title='About'>About</a>
+            <ul class='menus'>
+                <li><a href='#' title='Meet the Team'>Meet the Team</a></li>
+                <li><a href='#' title='Success Stories'>Success Stories</a></li>
+                <li><a href='/index.php/contact' title='Contact Us'>Contact Us</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
