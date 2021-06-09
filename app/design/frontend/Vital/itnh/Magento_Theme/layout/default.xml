@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-
         <referenceContainer name="header.container">
             <block class="Magento\Cms\Block\Block" name="top-bar" before="-">
                 <arguments>
@@ -13,13 +12,11 @@
         <move element="top.search" destination="catalog.topnav" after="-"/>
         <move element="copyright" destination="before.body.end"/>
         <move element="minicart" destination="top-bar" before="-" />
-        <move element="catalog.topnav" destination="header.container" after="top-bar" />
-
+        <move element="catalog.topnav" destination="header-wrapper" after="logo"/>
         <referenceContainer name="header.panel.wrapper" remove="true" />
         <referenceBlock name="advanced-search-link" remove="true"/>
         <referenceBlock name="top.search" remove="true"/>
         <referenceBlock name="catalog.topnav" remove="true"/>
-
         <referenceContainer name="footer">
             <referenceBlock name="footer_links" remove="true" />
             <referenceBlock name="report.bugs" remove="true" />
