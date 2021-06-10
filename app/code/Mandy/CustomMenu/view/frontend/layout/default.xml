@@ -1,6 +1,4 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <referenceContainer name="header.container">
-        <block class="Mandy\CustomMenu\Block\CustomMenu" name="custommenu_custommenu" template="Mandy_CustomMenu::custom-menu.phtml" />
-    </referenceContainer>
+    <referenceBlock class="Mandy\CustomMenu\Block\CustomMenu" name="catalog.topnav" template="Mandy_CustomMenu::custom-menu.phtml" />
 </page>

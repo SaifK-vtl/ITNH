@@ -41,13 +41,9 @@ $categories = $block->getCategories();
                             </li>
                         </ul>
                     </li>
-
-
                     <?php
-                    foreach ($categories
-
-                    as $category) {
-                    ?>
+                    foreach ($categories as $category) {
+                        ?>
                     <li><a href="<?php echo $block->getCategoryUrl($category); ?>"
                            title="<?php echo $category->getName(); ?>">
                             <?php echo $category->getName(); ?></a>
@@ -57,7 +53,7 @@ $categories = $block->getCategories();
                                 <?php echo $block->getChildCategoryView($category, $html = '', $level = $category->getLevel() + 1); ?>
                             </ul>
                         <?php }
-                        } ?>
+                    } ?>
                     </li>
                     <li><a class='' href='/wide-format-inkjet-printing-promotions' title='Promotion'>Promotion</a></li>
                     <li><a class='' href='/services' title='Services'>Services</a>
