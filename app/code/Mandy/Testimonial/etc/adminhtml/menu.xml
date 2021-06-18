@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mandy_Testimonial::mandy" title="Mandy" module="Mandy_Testimonial" sortOrder="51" resource="Mandy_Testimonial::testimonials"/>
+        <add id="Mandy_Testimonial::testimonial" title="Manage Testimonials" module="Mandy_Testimonial" sortOrder="10" action="testimonial/testimonial" resource="Mandy_Testimonial::testimonial" parent="Mandy_Testimonial::mandy"/>
+        <add id="Mandy_Testimonial::test_configuration" title="Configuration" module="Mandy_Testimonial" sortOrder="99" parent="Mandy_Testimonial::mandy" action="adminhtml/system_config/edit/section/testimonial" resource="Mandy_Testimonial::testimonial_configuration"/>
+
+    </menu>
+</config>

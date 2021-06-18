@@ -9,6 +9,14 @@
                 </arguments>
             </block>
         </referenceContainer>
+        <referenceContainer name="footer">
+            <block class="Magento\Cms\Block\Block" name="footer-block" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer-block</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
         <move element="logo" destination="header-wrapper" before="-"/>
         <move element="top.search" destination="catalog.topnav" after="-"/>
         <move element="copyright" destination="before.body.end"/>
@@ -18,7 +26,6 @@
         <referenceContainer name="header.panel.wrapper" remove="true" />
         <referenceBlock name="advanced-search-link" remove="true"/>
         <referenceBlock name="top.search" remove="true"/>
-
         <referenceContainer name="footer">
             <referenceBlock name="footer_links" remove="true" />
             <referenceBlock name="report.bugs" remove="true" />
@@ -26,12 +33,6 @@
         </referenceContainer>
         <referenceContainer name="copyright" remove="true"/>
         <referenceBlock name="form.subscribe" remove="true"/>
-        <referenceContainer name="footer">
-            <block class="Magento\Cms\Block\Block" name="footer-block" before="-">
-                <arguments>
-                    <argument name="block_id" xsi:type="string">footer-block</argument>
-                </arguments>
-            </block>
-        </referenceContainer>
+
     </body>
 </page>
