@@ -14,13 +14,13 @@
             <button name="back" class="Mandy\Testimonial\Block\Adminhtml\Index\Edit\Button\Back"/>
             <button name="reset" class="Mandy\Testimonial\Block\Adminhtml\Index\Edit\Button\Reset"/>
         </buttons>
-        <namespace>cms_block_form</namespace>
+        <namespace>testimonial_form</namespace>
         <dataScope>data</dataScope>
         <deps>
             <dep>testimonial_testimonial_form.testimonial_form_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="block_form_data_source">
+    <dataSource name="testimonial_form_data_source">
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
@@ -36,7 +36,7 @@
             </settings>
         </dataProvider>
     </dataSource>
-    <fieldset name="general">
+    <fieldset name="testimonial">
         <settings>
             <label/>
         </settings>
@@ -97,36 +97,36 @@
                 <dataScope>content</dataScope>
             </settings>
         </field>
-        <field formElement="imageUploader" name="icon" sortOrder="40" >
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="source" xsi:type="string">Demo</item>
-                </item>
-            </argument>
-            <settings>
-                <elementTmpl>ui/form/element/uploader/image</elementTmpl>
-                <dataType>string</dataType>
-                <label translate="true">Image</label>
-                <visible>true</visible>
-                <validation>
-                    <rule name="required-entry" xsi:type="boolean">true</rule>
-                </validation>
-            </settings>
-            <formElements>
-                <imageUploader>
-                    <settings>
-                        <required>true</required>
-                        <uploaderConfig>
-                            <param xsi:type="url" name="url" path="codextblog_imageupload/feature_image/upload"/>
-                        </uploaderConfig>
-                        <previewTmpl>Codextblog_Imageupload/image-preview</previewTmpl>
-                        <openDialogTitle>Media Gallery</openDialogTitle>
-                        <allowedExtensions>jpg jpeg gif png</allowedExtensions>
-                        <maxFileSize>4194304</maxFileSize>
-                    </settings>
-                </imageUploader>
-            </formElements>
-        </field>
+        <field formElement="imageUploader" name="image" sortOrder="40">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="source" xsi:type="string">Testimonial</item>
+            </item>
+        </argument>
+        <settings>
+            <label translate="true">File Attachment</label>
+            <dataType>text</dataType>
+            <dataScope>image</dataScope>
+            <elementTmpl>ui/form/element/uploader/image</elementTmpl>
+            <visible>true</visible>
+            <required>false</required>
+        </settings>
+        <formElements>
+            <imageUploader>
+                <settings>
+                    <required>false</required>
+                    <uploaderConfig>
+                        <param xsi:type="url" name="url" path="mandy/testimonial/filesubmission" />
+                    </uploaderConfig>
+                    <previewTmpl>Mandy_Testimonial/image-preview</previewTmpl>
+                    <openDialogTitle>Media Gallery</openDialogTitle>
+                    <initialMediaGalleryOpenSubpath>testimonial</initialMediaGalleryOpenSubpath>
+                    <allowedExtensions>jpg jpeg gif png</allowedExtensions>
+                    <maxFileSize>4194304</maxFileSize>
+                </settings>
+            </imageUploader>
+        </formElements>
+    </field>
         <field name="position" sortOrder="40" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

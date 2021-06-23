@@ -3,28 +3,15 @@
 namespace Mandy\Testimonial\Model\Testimonial;
 
 use Magento\Framework\App\Request\DataPersistorInterface;
-use Magento\Ui\DataProvider\Modifier\PoolInterface;
+use Magento\Store\Model\StoreManagerInterface;
 use Mandy\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory;
 
-/**
- * Class DataProvider
- */
-class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
+class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
-    /**
-     * @var \Magento\Cms\Model\ResourceModel\Block\Collection
-     */
-    protected $collection;
-
-    /**
-     * @var DataPersistorInterface
-     */
-    protected $dataPersistor;
-
-    /**
-     * @var array
-     */
     protected $loadedData;
+    protected $collection;
+    protected $storeManager;
+    protected $dataPersistor;
 
     /**
      * Constructor
@@ -32,25 +19,25 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
      * @param string $name
      * @param string $primaryFieldName
      * @param string $requestFieldName
-     * @param CollectionFactory $testimonialCollectionFactory
+     * @param CollectionFactory $collectionFactory
      * @param DataPersistorInterface $dataPersistor
      * @param array $meta
      * @param array $data
-     * @param PoolInterface|null $pool
      */
     public function __construct(
         $name,
         $primaryFieldName,
         $requestFieldName,
-        CollectionFactory $testimonialCollectionFactory,
+        CollectionFactory $collectionFactory,
         DataPersistorInterface $dataPersistor,
+        StoreManagerInterface $storeManager,
         array $meta = [],
-        array $data = [],
-        PoolInterface $pool = null
+        array $data = []
     ) {
-        $this->collection = $testimonialCollectionFactory->create();
+        $this->collection = $collectionFactory->create();
         $this->dataPersistor = $dataPersistor;
-        parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data, $pool);
+        $this->storeManager = $storeManager;
+        parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
 
     /**
@@ -64,19 +51,36 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
             return $this->loadedData;
         }
         $items = $this->collection->getItems();
-        /** @var \Mandy\Testimonial\Model\Testimonial $testimonial */
-        foreach ($items as $block) {
-            $this->loadedData[$block->getId()] = $block->getData();
-        }
+        foreach ($items as $model) {
+            $this->loadedData[$model->getId()] = $model->getData();
 
-        $data = $this->dataPersistor->get('testimonial');
+            /********START Image Uploader code********/
+            if ($model->getFilesubmission()) {
+                $m['image'][0]['name'] = $model->getFilesubmission();
+                $m['image'][0]['url'] = $this->getMediaUrl() . $model->getFilesubmission();
+                $fullData = $this->loadedData;
+                $this->loadedData[$model->getId()] = array_merge($fullData[$model->getId()], $m);
+            }
+            /********END Image Uploader code********/
+        }
+        $data = $this->dataPersistor->get('mandy_testimonial_testimonial');
+
         if (!empty($data)) {
-            $block = $this->collection->getNewEmptyItem();
-            $block->setData($data);
-            $this->loadedData[$block->getId()] = $block->getData();
-            $this->dataPersistor->clear('testimonial');
+            $model = $this->collection->getNewEmptyItem();
+            $model->setData($data);
+            $this->loadedData[$model->getId()] = $model->getData();
+            $this->dataPersistor->clear('mandy_testimonial_testimonial');
         }
 
         return $this->loadedData;
+    }
+
+    public function getMediaUrl()
+    {
+        // testimonial is IMAGE_UPLOAD_DIRECTORY name.
+        $mediaUrl = $this->storeManager->getStore()
+                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'testimonial/';
+
+        return $mediaUrl;
     }
 }

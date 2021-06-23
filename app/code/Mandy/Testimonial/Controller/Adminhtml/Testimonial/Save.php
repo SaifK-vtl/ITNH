@@ -1,61 +1,29 @@
 <?php
 namespace Mandy\Testimonial\Controller\Adminhtml\Testimonial;
 
-use Magento\Backend\App\Action\Context;
-use Magento\Framework\App\Action\HttpPostActionInterface;
-use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\Registry;
-use Mandy\Testimonial\Api\TestimonialRepositoryInterface;
-use Mandy\Testimonial\Model\Testimonial;
-use Mandy\Testimonial\Model\TestimonialFactory;
 
-/**
- * Save CMS block action.
- */
 class Save extends \Magento\Backend\App\Action
 {
-    /**
-     * @var DataPersistorInterface
-     */
     protected $dataPersistor;
-
+    protected $testimonialFactory;
     /**
-     * @var TestimonialFactory
-     */
-    private $testimonialFactory;
-
-    /**
-     * @var TestimonialRepositoryInterface
-     */
-    private $testimonialRepository;
-
-    /**
-     * @param Context $context
-     * @param Registry $coreRegistry
-     * @param DataPersistorInterface $dataPersistor
-     * @param TestimonialFactory|null $testimonialFactory
-     * @param TestimonialRepositoryInterface|null $testimonialRepository
+     * @param \Magento\Backend\App\Action\Context $context
+     * @param \Magento\Framework\App\Request\DataPersistorInterface $dataPersistor
      */
     public function __construct(
-        Context $context,
-        Registry $coreRegistry,
-        DataPersistorInterface $dataPersistor,
-        TestimonialFactory $testimonialFactory = null,
-        TestimonialRepositoryInterface $testimonialRepository = null
+        \Magento\Backend\App\Action\Context $context,
+        \Magento\Framework\App\Request\DataPersistorInterface $dataPersistor,
+        \Mandy\Testimonial\Model\TestimonialFactory $testimonialFactory
     ) {
         $this->dataPersistor = $dataPersistor;
-        $this->testimonialFactory = $testimonialFactory
-            ?: \Magento\Framework\App\ObjectManager::getInstance()->get(TestimonialFactory::class);
-        $this->testimonialRepository = $testimonialRepository
-            ?: \Magento\Framework\App\ObjectManager::getInstance()->get(TestimonialRepositoryInterface::class);
-        parent::__construct($context, $coreRegistry);
+        $this->_testimonialFactory = $testimonialFactory;
+        parent::__construct($context);
     }
 
     /**
      * Save action
      *
-     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @return \Magento\Framework\Controller\ResultInterface
      */
     public function execute()
@@ -64,73 +32,46 @@ class Save extends \Magento\Backend\App\Action
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
         if ($data) {
-            if (isset($data['status']) && $data['status'] === 'true') {
-                $data['status'] = Testimonial::STATUS_ENABLED;
-            }
-            if (empty($data['tsm_id'])) {
-                $data['tsm_id'] = null;
-            }
-
-            /** @var \Mandy\Testimonial\Model\Testimonial $model */
-            $model = $this->testimonialFactory->create();
 
             $id = $this->getRequest()->getParam('tsm_id');
-            if ($id) {
-                try {
-                    $model = $this->testimonialRepository->getById($id);
-                } catch (LocalizedException $e) {
-                    $this->messageManager->addErrorMessage(__('This testimonial no longer exists.'));
-                    return $resultRedirect->setPath('*/*/');
-                }
+            $model = $this->_objectManager->create(\Mandy\Testimonial\Model\Testimonial::class)->load($id);
+            if (!$model->getId() && $id) {
+                $this->messageManager->addErrorMessage(__('This testimonial no longer exists.'));
+                return $resultRedirect->setPath('*/*/');
             }
 
+            $data = $this->_filterAttachmentData($data);
+            $data['image'] = json_encode($data['image']);
             $model->setData($data);
-
             try {
-                $this->testimonialRepository->save($model);
+                $model->save();
                 $this->messageManager->addSuccessMessage(__('You saved the testimonial.'));
-                $this->dataPersistor->clear('testimonial');
-                return $this->processBlockReturn($model, $data, $resultRedirect);
+                $this->dataPersistor->clear('mandy_testimonial_testimonial');
+
+                if ($this->getRequest()->getParam('back')) {
+                    return $resultRedirect->setPath('*/*/edit', ['tsm_id' => $model->getId()]);
+                }
+                return $resultRedirect->setPath('*/*/');
             } catch (LocalizedException $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());
             } catch (\Exception $e) {
-                $this->messageManager->addExceptionMessage($e, __('Something went wrong while saving the testimonial.'));
+                $this->messageManager->addExceptionMessage($e, __('Something went wrong while saving the quote.'));
             }
 
-            $this->dataPersistor->set('testimonial', $data);
-            return $resultRedirect->setPath('*/*/edit', ['tsm_id' => $id]);
+            $this->dataPersistor->set('mandy_testimonial_testimonial', $data);
+            return $resultRedirect->setPath('*/*/edit', ['tsm_id' => $this->getRequest()->getParam('tsm_id')]);
         }
         return $resultRedirect->setPath('*/*/');
     }
 
-    /**
-     * Process and set the block return
-     *
-     * @param \Mandy\Testimonial\Model\Testimonial $model
-     * @param array $data
-     * @param \Magento\Framework\Controller\ResultInterface $resultRedirect
-     * @return \Magento\Framework\Controller\ResultInterface
-     * @throws LocalizedException
-     */
-    private function processBlockReturn($model, $data, $resultRedirect)
+    public function _filterAttachmentData(array $rawData)
     {
-        $redirect = $data['back'] ?? 'close';
-
-        if ($redirect ==='continue') {
-            $resultRedirect->setPath('*/*/edit', ['tsm_id' => $model->getId()]);
-        } elseif ($redirect === 'close') {
-            $resultRedirect->setPath('*/*/');
-        } elseif ($redirect === 'duplicate') {
-            $duplicateModel = $this->testimonialFactory->create(['data' => $data]);
-            $duplicateModel->setId(null);
-            $duplicateModel->setIdentifier($data['identifier'] . '-' . uniqid());
-            $duplicateModel->setStatus(Testimonial::STATUS_DISABLED);
-            $this->testimonialRepository->save($duplicateModel);
-            $id = $duplicateModel->getId();
-            $this->messageManager->addSuccessMessage(__('You duplicated the testimonial.'));
-            $this->dataPersistor->set('testimonial', $data);
-            $resultRedirect->setPath('*/*/edit', ['tsm_id' => $id]);
+        $data = $rawData;
+        if (isset($data['image'][0]['name'])) {
+            $data['image'] = $data['image'][0]['name'];
+        } else {
+            $data['image'] = null;
         }
-        return $resultRedirect;
+        return $data;
     }
 }

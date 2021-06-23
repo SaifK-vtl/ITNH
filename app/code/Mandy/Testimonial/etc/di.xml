@@ -1,15 +1,37 @@
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="testimonial_testimonial_listing_data_source" xsi:type="string">Mandy\Testimonial\Model\ResourceModel\Testimonial\Grid\Collection</item>
+                <item name="testimonial_testimonial_listing_data_source" xsi:type="string">
+                    Mandy\Testimonial\Model\ResourceModel\Testimonial\Grid\Collection
+                </item>
             </argument>
         </arguments>
     </type>
-    <virtualType name="Mandy\Testimonial\Model\ResourceModel\Testimonial\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+    <virtualType name="Mandy\Testimonial\Model\ResourceModel\Testimonial\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">mdy_testimonial</argument>
-            <argument name="resourceModel" xsi:type="string">Mandy\Testimonial\Model\ResourceModel\Testimonial</argument>
+            <argument name="resourceModel" xsi:type="string">Mandy\Testimonial\Model\ResourceModel\Testimonial
+            </argument>
         </arguments>
     </virtualType>
+    <preference for="Mandy\Testimonial\Api\Data\TestimonialInterface" type="Mandy\Testimonial\Model\Testimonial"/>
+    <virtualType name="MandyImageUploader" type="Mandy\Testimonial\Model\ImageUploader">
+        <arguments>
+            <argument name="basePath" xsi:type="const">Mandy\Testimonial\Model\ImageUploader::IMAGE_BASE_PATH</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Mandy\Testimonial\Controller\Adminhtml\Testimonial\Filesubmission">
+    <arguments>
+        <argument name="uploader" xsi:type="object">MandyImageUploader</argument>
+    </arguments>
+</type>
 </config>
