@@ -55,21 +55,21 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
             $this->loadedData[$model->getId()] = $model->getData();
 
             /********START Image Uploader code********/
-            if ($model->getFilesubmission()) {
-                $m['image'][0]['name'] = $model->getFilesubmission();
-                $m['image'][0]['url'] = $this->getMediaUrl() . $model->getFilesubmission();
+            if ($model->getImage()) {
+                $m['image'][0]['name'] = $model->getImage();
+                $m['image'][0]['url'] = $this->getMediaUrl() . $model->getImage();
                 $fullData = $this->loadedData;
                 $this->loadedData[$model->getId()] = array_merge($fullData[$model->getId()], $m);
             }
             /********END Image Uploader code********/
         }
-        $data = $this->dataPersistor->get('mandy_testimonial_testimonial');
+        $data = $this->dataPersistor->get('mdy_testimonial');
 
         if (!empty($data)) {
             $model = $this->collection->getNewEmptyItem();
             $model->setData($data);
             $this->loadedData[$model->getId()] = $model->getData();
-            $this->dataPersistor->clear('mandy_testimonial_testimonial');
+            $this->dataPersistor->clear('mdy_testimonial');
         }
 
         return $this->loadedData;
@@ -79,7 +79,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
     {
         // testimonial is IMAGE_UPLOAD_DIRECTORY name.
         $mediaUrl = $this->storeManager->getStore()
-                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'testimonial/';
+                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'itnh/testimonial/';
 
         return $mediaUrl;
     }

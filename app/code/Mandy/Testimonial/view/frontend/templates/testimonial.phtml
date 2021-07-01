@@ -1,0 +1,66 @@
+<?php
+/**
+ * @var \Mandy\Testimonial\Block\Testimonial $block
+ */
+?>
+<div id="main" role="main">
+    <section class="page_block page_block_margin_bottom_5"
+             style="background-image:url('/media/main/testimonial-banner.jpg');" data-rownum="1">
+        <div class="page_block_content align_center valign_stretch ">
+            <div class="content_column edge_to_edge columns_12">
+                <div class="module_hero_banner simple overlay-Array">
+                    <div class="headline">
+                        <h1>Success Stories</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page_block page_block_margin_bottom_5" data-rownum="2">
+        <div class="page_block_content align_center valign_stretch ">
+            <div class="content_column columns_8">
+                <div class="module_simple_content entry">
+                    <h3 style="text-align: center;">Testimonials from Our Customers</h3>
+                    <p>We&#8217;re proud to have a customer base full of innovative companies with wide ranging print
+                        applications. Our team takes pride in helping businesses enhance their existing print methods to
+                        create high quality products through a streamlined printing process.</p>
+                    <p>Here&#8217;s what some of our customers have to say about working with us.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="slideshow-container">
+        <?php
+        foreach ($block->getTestimonialCollection() as $key => $testimonial) {
+            ?>
+            <div class="mySlides">
+                <a href="#">
+                    <div class="testimonial"><img
+                            src="http://itnh.local/media/itnh/testimonial/<?php echo $testimonial->getImage(); ?>"
+                            alt=""/></div>
+                    <div class="content">
+                        <p><?php echo $testimonial->getContent(); ?></p>
+                        <button>Read More</button>
+                    </div>
+                </a>
+            </div>
+
+            <?php
+        } ?>
+        <div class="dot-container">
+            <?php
+            $count = 0;
+            foreach ($block->getTestimonialCollection() as $key => $testimonial) {
+                $count++; ?>
+                <span class="dot" onclick="currentSlide(<?php echo $count; ?>)"></span>
+                <?php
+            }
+            ?>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+
+
+</div>

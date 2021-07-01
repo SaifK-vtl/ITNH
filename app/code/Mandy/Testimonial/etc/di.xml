@@ -18,6 +18,8 @@
         </arguments>
     </virtualType>
     <preference for="Mandy\Testimonial\Api\Data\TestimonialInterface" type="Mandy\Testimonial\Model\Testimonial"/>
+    <preference for="Mandy\Testimonial\Api\TestimonialRepositoryInterface"
+                type="Mandy\Testimonial\Model\TestimonialRepository"/>
     <virtualType name="MandyImageUploader" type="Mandy\Testimonial\Model\ImageUploader">
         <arguments>
             <argument name="basePath" xsi:type="const">Mandy\Testimonial\Model\ImageUploader::IMAGE_BASE_PATH</argument>
@@ -30,8 +32,30 @@
         </arguments>
     </virtualType>
     <type name="Mandy\Testimonial\Controller\Adminhtml\Testimonial\Filesubmission">
-    <arguments>
-        <argument name="uploader" xsi:type="object">MandyImageUploader</argument>
-    </arguments>
-</type>
+        <arguments>
+            <argument name="uploader" xsi:type="object">MandyImageUploader</argument>
+        </arguments>
+    </type>
+    <virtualType name="Mandy\Testimonial\TestimonialImageUpload" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">itnh/tmp/testimonial</argument>
+            <argument name="basePath" xsi:type="string">itnh/testimonial</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Mandy\Testimonial\Controller\Adminhtml\Testimonial\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Mandy\Testimonial\TestimonialImageUpload</argument>
+        </arguments>
+    </type>
+    <type name="Mandy\Testimonial\Controller\Adminhtml\Testimonial\Save">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Mandy\Testimonial\TestimonialImageUpload</argument>
+        </arguments>
+    </type>
 </config>

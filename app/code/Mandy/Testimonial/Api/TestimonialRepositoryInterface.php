@@ -1,6 +1,8 @@
 <?php
 namespace Mandy\Testimonial\Api;
 
+use Mandy\Testimonial\Api\Data\TestimonialInterface;
+
 /**
  * CMS block CRUD interface.
  * @api
@@ -9,13 +11,10 @@ namespace Mandy\Testimonial\Api;
 interface TestimonialRepositoryInterface
 {
     /**
-     * Save block.
-     *
      * @param \Mandy\Testimonial\Api\Data\TestimonialInterface $testimonial
      * @return \Mandy\Testimonial\Api\Data\TestimonialInterface
-     * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function save(Data\TestimonialInterface $testimonial);
+    public function save(TestimonialInterface $testimonial);
 
     /**
      * Retrieve block.
